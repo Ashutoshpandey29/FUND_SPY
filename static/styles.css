@@ -1,0 +1,323 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #cacccd;
+}
+
+.container-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 100px;
+
+    text-align: center;
+    background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
+    border-radius: 10px;
+    width: 100%;
+    height: 50vh;
+    padding-top: 30px;
+}
+
+.container h1 {
+    font-family: "Sacramento" , cursive;
+    font-size: 100px;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.container p {
+    margin: 20px 0;
+}
+
+.features{
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.features a {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #7a7c7f;
+    background-color: #9eabae9a;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.features a:hover {
+    background-color: #08396e;
+    color: #ffffff;
+}
+
+.vector{
+    height: 100px;
+    width: 100px;
+    border-radius: 8px;
+}
+
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card{   
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex:1;
+    height: 40vh;
+    color:#5e5e5e;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* .card::before{
+    content:"";
+    background-image: conic-gradient(#ff0052 20deg,
+    transparent 120deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotate 2s linear infinite;
+} */
+
+/* .card::after{
+    content:"";
+    width:190px;
+    height:190px;
+    background: #101010;
+    position: absolute;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff0052;
+    font-size:larger;
+    letter-spacing: 5px;
+    box-shadow: inset 20px 20px 20px #0000008c;
+} */
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+.card p{
+    font-size: px;
+    font-weight: 600;
+    color: #848a90;
+}
+
+
+.subhead-text {
+    color: #5e5e5e; /* text-gray-800 */
+    font-weight: 600; /* font-semibold */
+    font-size: 1.25rem; /* text-xl */
+}
+
+@media (min-width: 640px) {
+    .subhead-text {
+        font-size: 1.875rem; /* sm:text-3xl */
+    }
+}
+
+.headings{
+    margin-left: 20px;
+}
+
+.subhead-text {
+    position: relative; /* relative */
+    font-family: 'Poppins', sans-serif; /* font-poppins */
+}
+
+.blue-gradient_text {
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* bg-gradient-to-r from-[#00c6ff] to-[#0072ff] */
+    -webkit-background-clip: text; /* bg-clip-text for WebKit browsers (Safari, Chrome) */
+    background-clip: text; /* Standard background-clip property */
+    -webkit-text-fill-color: transparent; /* text-transparent for WebKit browsers */
+    color: transparent; /* text-transparent for other browsers */
+    font-weight: 600; /* font-semibold */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); /* drop-shadow equivalent */
+}
+
+/* Light Red to Dark Red Gradient */
+.red-gradient_text {
+    background: linear-gradient(to right, #ff7e7e, #b71c1c); /* Light Red to Dark Red Gradient */
+    -webkit-background-clip: text; /* bg-clip-text for WebKit browsers (Safari, Chrome) */
+    background-clip: text; /* Standard background-clip property */
+    -webkit-text-fill-color: transparent; /* text-transparent for WebKit browsers */
+    color: transparent; /* text-transparent for other browsers */
+    font-weight: 600; /* font-semibold */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); /* drop-shadow equivalent */
+}
+
+/* Light Green to Dark Green Gradient */
+.green-gradient_text {
+    background: linear-gradient(to right, #66bb6a, #1cb79d); /* Light Green to Dark Green Gradient */
+    -webkit-background-clip: text; /* bg-clip-text for WebKit browsers (Safari, Chrome) */
+    background-clip: text; /* Standard background-clip property */
+    -webkit-text-fill-color: transparent; /* text-transparent for WebKit browsers */
+    color: transparent; /* text-transparent for other browsers */
+    font-weight: 600; /* font-semibold */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); /* drop-shadow equivalent */
+}
+
+/* Light Yellow to Dark Yellow Gradient */
+.yellow-gradient_text {
+    background: linear-gradient(to right, #ffff66, #ff9800); /* Light Yellow to Dark Yellow Gradient */
+    -webkit-background-clip: text; /* bg-clip-text for WebKit browsers (Safari, Chrome) */
+    background-clip: text; /* Standard background-clip property */
+    -webkit-text-fill-color: transparent; /* text-transparent for WebKit browsers */
+    color: transparent; /* text-transparent for other browsers */
+    font-weight: 600; /* font-semibold */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25); /* drop-shadow equivalent */
+}
+
+
+
+
+.typewriter {
+
+    display: inline-block;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid white; /* The typewriter cursor */
+    color: #ffffffac;
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 6s steps(40, end) infinite,
+      blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+    0% { width: 0 }
+    50% { width: 100% }
+    60% { width: 100% } /* Pause at the end */
+    100% { width: 0 }   /* Back to zero width */
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+}
+
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.developer-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.developer {
+    margin: 10px;
+    text-align: center;
+}
+
+.developer p {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.social-link {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+}
+
+.social-link:hover {
+    opacity: 0.8;
+}
+
+.copyright{
+    margin-top: 20px;
+    font-weight: 900;
+}
+
+.circular-transactions-page {
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+/* Styles for the Circular Transactions Page */
+.circular-transactions-page h1 {
+    color: #555; /* Dark grey color for the heading */
+    margin: 20px 0;
+}
+
+.circular-transactions-page ul {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+}
+
+.circular-transactions-page li {
+    background-color: #ffffff; /* White background for list items */
+    border: 3px solid transparent; /* Transparent border to use gradient border-image */
+    border-radius: 10px; /* Rounded corners for the border */
+    padding: 15px;
+    margin: 10px auto; /* Center align list items */
+    max-width: 80%; /* Full width but with some margin on large screens */
+    color: #777; /* Grey color for text */
+    font-size: 1.1em; /* Slightly larger text */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    border-image: linear-gradient(to right, #d68080, #a81313) 1; /* Dark red gradient border */
+    border-image-slice: 1; /* Slice the border image */
+    font-weight: bold;
+}
+
+.circular-transactions-page li:hover {
+    background-color: #86c1e5; /* Light grey background on hover */
+    color:#22065b
+}
+
+.circular-transactions-page a {
+    color: #007bff; /* Blue color for the link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.circular-transactions-page a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

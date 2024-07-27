@@ -1,12 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <title>Transaction Analysis</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FundSpy Dashboard</title>
+    <link rel="stylesheet" href="./static/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Transaction Analysis</h1>
-    <p><a href="/circular">Find Circular Transactions</a></p>
-    <p><a href="/spikes">View Sudden Spikes</a></p>
+    <script src="./static/script.js"></script>
+    <div>
+      <div class = "container-main">
+        <div class = "container">
+          <h1>Fund Spy</h1>
+          <div class="typewriter"></div>
+        </div>
+        <img src="./static/images/funds.png" alt="Image" />
+      </div>
+      <div class="headings">
+        <h3 class="subhead-text">Features</h3>
+      </div>
+      <div class="cardContainer">
+        <div class="card">
+          <h3 class="subhead-text">Circular Transaction Detection</h3>
+          <img class="vector" src="./static/images/circle.webp" alt="Circular" />
+          <p>
+            Identifies and flags transactions that
+            <span class="green-gradient_text">circulate in a loop</span> between
+            accounts.
+          </p>
+
+          <div class="features">
+            <p><a href="/circular">Find Circular Transactions</a></p>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="subhead-text">Sudden Spike Detection</h3>
+          <img class="vector" src="./static/images/spike.webp" alt="Circular" />
+          <p>
+            Monitors and alerts on
+            <span class="blue-gradient_text">unexpected increases</span> in
+            transaction volumes.
+          </p>
+          <div class="features">
+            <p><a href="/spikes">View Sudden Spikes</a></p>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="subhead-text">Fraudulent Transaction Flagging</h3>
+          <img class="vector" src="./static/images/fraud.webp" alt="Circular" />
+          <p>
+            Automatically
+            <span class="red-gradient_text">flags transactions</span> based on
+            predefined criteria and algorithms.
+          </p>
+          <div class="features">
+            <p><a href="/circular">Find Fraudulent Transactions</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="headings">
+        <h3 class="subhead-text">Developers</h3>
+      </div>
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="developer-info">
+            <div class="developer">
+              <p>Ashutosh Pandey</p>
+              <a
+                href="https://github.com/ashutoshpandey"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/github-logo.webp"
+                  alt="GitHub"
+                  class="social-icon"
+                />
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ashutoshpandey"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/linkedin-logo.webp"
+                  alt="LinkedIn"
+                  class="social-icon"
+                />
+                LinkedIn
+              </a>
+            </div>
+            <div class="developer">
+              <p>Vasu Pandey</p>
+              <a
+                href="https://github.com/vasu"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/github-logo.webp"
+                  alt="GitHub"
+                  class="social-icon"
+                />
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/vasu"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/linkedin-logo.webp"
+                  alt="LinkedIn"
+                  class="social-icon"
+                />
+                LinkedIn
+              </a>
+            </div>
+            <div class="developer">
+              <p>Rallabandi Sindhu</p>
+              <a
+                href="https://github.com/sindhu"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/github-logo.webp"
+                  alt="GitHub"
+                  class="social-icon"
+                />
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/sindhu"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/linkedin-logo.webp"
+                  alt="LinkedIn"
+                  class="social-icon"
+                />
+                LinkedIn
+              </a>
+            </div>
+            <div class="developer">
+              <p>Nandini Thakur</p>
+              <a
+                href="https://github.com/nandini"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/github-logo.webp"
+                  alt="GitHub"
+                  class="social-icon"
+                />
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/nandini"
+                target="_blank"
+                class="social-link"
+              >
+                <img
+                  src="./static/images/linkedin-logo.webp"
+                  alt="LinkedIn"
+                  class="social-icon"
+                />
+                LinkedIn
+              </a>
+            </div>
+          </div>
+          <div class = "copyright">
+            Copyright © 2024 Team VARN (TECHNOVERSE HACKATHON BY COGNIZANT)
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
