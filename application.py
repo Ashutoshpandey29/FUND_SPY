@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from collections import defaultdict
 import io
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Load the dataset
 df = pd.read_csv('transaction_dataset.csv')
@@ -82,19 +82,19 @@ def plot_sudden_spikes(df):
     buf.seek(0)
     return buf
 
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/circular')
+@application.route('/circular')
 def circular():
     cycles = find_and_collect_circular_transactions(df)
     return render_template('circular.html', cycles=cycles)
 
-@app.route('/spikes')
+@application.route('/spikes')
 def spikes():
     buf = plot_sudden_spikes(df)
     return send_file(buf, mimetype='image/png')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
