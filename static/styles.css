@@ -37,7 +37,7 @@ body {
 
 .features a {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 20px;
     font-size: 18px;
     color: #7a7c7f;
     background-color: #9eabae9a;
@@ -76,7 +76,7 @@ body {
     width: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex:1;
-    height: 40vh;
+    height: auto;
     color:#5e5e5e;
     font-family: 'Poppins', sans-serif;
     position: relative;
