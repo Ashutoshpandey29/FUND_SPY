@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>ML Models</h1>
+        <div>
+            <h2>Model 1 - BaseLine</h2>
+            <div>
+                <img src="{{ url_for('static', filename='images/model1_pr.png') }}" alt="Model 1 Image 1">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='images/model1_roc.png') }}" alt="Model 1 Image 2">
+            </div>
+        </div>
+        <div>
+            <h2>Model 2 - SMOTE</h2>
+            <div>
+                <img src="{{ url_for('static', filename='images/model2_pr.png') }}" alt="Model 2 Image 1">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='images/model2_roc.png') }}" alt="Model 2 Image 2">
+            </div>
+        </div>
+        <div>
+            <h2>Model 3 - Down-Sampling</h2>
+        <div>
+            <div>
+                <img src="{{ url_for('static', filename='images/model3_pr.png') }}" alt="Model 3 Image 1">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='images/model3_roc.png') }}" alt="Model 3 Image 2">
+            </div>
+        </div>
+        <div>
+            <h2>Model 4 - PCA</h2>
+            <div>
+                <img src="{{ url_for('static', filename='images/model4_pr.png') }}" alt="Model 4 Image 1">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='images/model4_roc.png') }}" alt="Model 4 Image 2">
+            </div>
+        </div>
+        <div>
+            <h2>Model 5 - KFOLD Validation</h2>
+            <div>
+                <img src="{{ url_for('static', filename='images/model5_pr.png') }}" alt="Model 5 Image 1">
+            </div>
+            <div>
+                <img src="{{ url_for('static', filename='images/model5_roc.png') }}" alt="Model 5 Image 2">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
