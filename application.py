@@ -2,9 +2,13 @@ from flask import Flask, render_template, request, send_file
 import pandas as pd
 import matplotlib.pyplot as plt
 from collections import defaultdict
+import pickle
 import io
 import os
 
+
+with open('static/models/model2_smote.pkl', 'rb') as model_file:
+    model = pickle.load(model_file)
 
 application = Flask(__name__)
 
@@ -119,7 +123,6 @@ def models():
 
     # List of CSV file names
     csv_files = [
-        "output1.csv",
         "output2.csv",
         "output3.csv",
         "output4.csv",
@@ -133,14 +136,44 @@ def models():
         print(f"Checking file: {full_path}")
         if os.path.exists(full_path):
             df = pd.read_csv(full_path)
-            df_sampled = df.sample(n=20)
+            df_sampled = df.sample(n= 15)
             html_table = df_sampled.to_html(classes="table table-striped", index=False)
             tables.append(html_table)
+            
         else:
             tables.append(f"<p>Error: {file} not found.</p>")
 
     # Render the template with the tables
     return render_template("mlModel.html", tables=tables)
+
+
+@application.route('/predict', methods=['POST'])
+def predict():
+    if 'file' not in request.files:
+        return redirect(request.url)
+
+    file = request.files['file']
+    if file.filename == '':
+        return redirect(request.url)
+
+    if file:
+        # Read the CSV file into a DataFrame without headers
+        df = pd.read_csv(file, header=None)
+
+        # Use all columns as features
+        features = df.values
+
+        # Make predictions
+        predictions = model.predict(features)
+
+        # Add predictions to the DataFrame
+        df['Prediction'] = predictions
+
+        # Convert results to HTML table
+        results = df.to_html(classes='table table-striped', index=False)
+
+        return render_template('results.html', tables=[results])
+
 
 if __name__ == '__main__':
     application.run(debug=True)

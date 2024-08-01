@@ -1,195 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ML Models</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #cacccd;
-      }
+        /* Existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #cacccd;
+        }
 
-      .container-main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 10px;
-        gap: 30px;
-        text-align: center;
-        background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
-        border-radius: 20px;
-        width: 100%;
-        height: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-      }
+        .container-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            gap: 30px;
+            text-align: center;
+            background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
+            border-radius: 20px;
+            width: 100%;
+            height: auto;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
 
-      .container-main h1 {
-        font-family: "Sacramento", cursive;
-        font-size: 50px;
-        color: #ffffff;
-        margin-bottom: 10px;
-      }
+        .container-main h1 {
+            font-family: "Sacramento", cursive;
+            font-size: 50px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
 
-      .cardContainer {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-      }
+        .cardContainer {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
 
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: #ffffff;
-        border-radius: 10px;
-        margin: 10px;
-        padding: 20px;
-        width: 150px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        flex: 1;
-        height: 150px;
-        color: #5e5e5e;
-        font-family: "Poppins", sans-serif;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-      }
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 20px;
+            width: 150px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            height: 150px;
+            color: #5e5e5e;
+            font-family: "Poppins", sans-serif;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
 
-      .card:hover {
-        background-color: #f0f0f0;
-      }
+        .card:hover {
+            background-color: #f0f0f0;
+        }
 
-      .card h2 {
-        font-size: 20px;
-      }
+        .card h2 {
+            font-size: 20px;
+        }
 
-      #modelContent {
-        margin-top: 20px;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        text-align: center; /* Center text and content */
-      }
+        #modelContent {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            text-align: center;
+            /* Center text and content */
+        }
 
-      .image-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-        margin-top: 20px;
-      }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-      .image-grid img {
-        width: 100%;
-        height: auto;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-      #modelContent table {
-        margin-top: 20px;
-        margin-left: auto; /* Center the table */
-        margin-right: auto; /* Center the table */
-        display: inline-table; /* Ensure table stays centered */
-      }
+        #modelContent table {
+            margin-top: 20px;
+            margin-left: auto;
+            /* Center the table */
+            margin-right: auto;
+            /* Center the table */
+            display: inline-table;
+            /* Ensure table stays centered */
+        }
 
-      .headings h2 {
-        text-align: center;
-        margin-bottom: 20px;
-      }
-      .headings h2 {
-        margin-top: 20px;
-        text-align: center;
-        margin-bottom: 20px;
-      }
+        .headings h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .headings h2 {
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* New styles for highlighting */
+        .highlight {
+            background-color: #ffcccc !important;
+            /* Light red background */
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="container-main">
-      <h1 class="typewriter">Select an ML Model</h1>
-      <div class="cardContainer">
-        <div class="card" onclick="showModel(1)">
-          <h2>Model 1</h2>
+        <h1 class="typewriter">Select Your Preferred Model</h1>
+        <div class="cardContainer">
+            <div class="card" onclick="showModel(2)">
+                <h2>Basic</h2>
+            </div>
+            <div class="card" onclick="showModel(3)">
+                <h2>Plus</h2>
+            </div>
+            <div class="card" onclick="showModel(4)">
+                <h2>Premium</h2>
+            </div>
+            <div class="card" onclick="showModel(5)">
+                <h2>Premium</h2>
+            </div>
         </div>
-        <div class="card" onclick="showModel(2)">
-          <h2>Model 2</h2>
-        </div>
-        <div class="card" onclick="showModel(3)">
-          <h2>Model 3</h2>
-        </div>
-        <div class="card" onclick="showModel(4)">
-          <h2>Model 4</h2>
-        </div>
-        <div class="card" onclick="showModel(5)">
-          <h2>Model 5</h2>
-        </div>
-      </div>
+        <h1>Upload CSV for Prediction</h1>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".csv">
+            <input type="submit" value="Upload">
+        </form>
     </div>
 
     <div class="container" id="modelContent">
-      <!-- Dynamic content will be inserted here -->
+        <!-- Dynamic content will be inserted here -->
     </div>
 
     <script>
-      const models = {
-        1: {
-          images: [
-            "{{ url_for('static', filename='images/model1_pr.png') }}",
-            "{{ url_for('static', filename='images/model1_roc.png') }}",
-          ],
-          table: `{{ tables[0]|safe }}`,
-        },
-        2: {
-          images: [
-            "{{ url_for('static', filename='images/model2_pr.png') }}",
-            "{{ url_for('static', filename='images/model2_roc.png') }}",
-          ],
-          table: `{{ tables[1]|safe }}`,
-        },
-        3: {
-          images: [
-            "{{ url_for('static', filename='images/model3_pr.png') }}",
-            "{{ url_for('static', filename='images/model3_roc.png') }}",
-          ],
-          table: `{{ tables[2]|safe }}`,
-        },
-        4: {
-          images: [
-            "{{ url_for('static', filename='images/model4_pr.png') }}",
-            "{{ url_for('static', filename='images/model4_roc.png') }}",
-          ],
-          table: `{{ tables[3]|safe }}`,
-        },
-        5: {
-          images: [
-            "{{ url_for('static', filename='images/model5_pr.png') }}",
-            "{{ url_for('static', filename='images/model5_roc.png') }}",
-          ],
-          table: `{{ tables[4]|safe }}`,
-        },
-      };
-
-      function showModel(modelNumber) {
-        const model = models[modelNumber];
-        const modelContent = document.getElementById("modelContent");
-
-        const imagesHtml = model.images
-          .map((src) => `<img src="${src}" alt="Model ${modelNumber} Image">`)
-          .join("");
-        const tableHtml = model.table;
-
-        modelContent.innerHTML = `
+        const models = {
+            2: {
+                images: [
+                    "{{ url_for('static', filename='images/model2_pr.png') }}",
+                    "{{ url_for('static', filename='images/model2_roc.png') }}"
+                ],
+                table: `{{ tables[0]|safe }}`
+            },
+            3: {
+                images: [
+                    "{{ url_for('static', filename='images/model3_pr.png') }}",
+                    "{{ url_for('static', filename='images/model3_roc.png') }}"
+                ],
+                table: `{{ tables[1]|safe }}`
+            },
+            4: {
+                images: [
+                    "{{ url_for('static', filename='images/model4_pr.png') }}",
+                    "{{ url_for('static', filename='images/model4_roc.png') }}"
+                ],
+                table: `{{ tables[2]|safe }}`
+            },
+            5: {
+                images: [
+                    "{{ url_for('static', filename='images/model5_pr.png') }}",
+                    "{{ url_for('static', filename='images/model5_roc.png') }}"
+                ],
+                table: `{{ tables[3]|safe }}`
+            }
+        };
+        function showModel(modelNumber) {
+            const model = models[modelNumber];
+            const modelContent = document.getElementById("modelContent");
+            const imagesHtml = model.images
+                .map((src) => `<img src="${src}" alt="Model ${modelNumber} Image">`)
+                .join("");
+            const tableHtml = model.table;
+            modelContent.innerHTML = `
                 <div class="headings">
                     <h2>Model ${modelNumber}</h2>
                 </div>
@@ -201,12 +203,33 @@
                     ${tableHtml}
                 </div>
             `;
-      }
+            highlightRows();
+        }
+        function highlightRows() {
+                const tables = document.querySelectorAll(".table");
+                tables.forEach(table => {
+                    const rows = table.querySelectorAll("tr");
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll("td");
+                        if (cells.length > 0) { // Ensure there are cells in the row
+                            const lastCell = cells[cells.length - 1]; // Get the last cell
+                            const text = lastCell.innerText.trim();
+                            if (text !== '' && !isNaN(text)) {
+                                const value = parseFloat(text);
+                                if (value >= 0.80) {
+                                    row.classList.add('highlight');
+                                }
+                            }
+                        }
+                    });
+                });
+            }
 
-      // Initialize with the first model's data
-      document.addEventListener("DOMContentLoaded", () => {
-        showModel(1);
-      });
+        // Initialize with the first model's data
+        document.addEventListener("DOMContentLoaded", () => {
+            showModel(2);
+        });
     </script>
-  </body>
+</body>
+
 </html>
