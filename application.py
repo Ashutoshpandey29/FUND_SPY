@@ -53,12 +53,26 @@ def find_and_collect_circular_transactions(df):
     return cycles
 
 # Function to detect sudden spikes and plot them
+import pandas as pd
+import matplotlib.pyplot as plt
+import io
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+
+
 def plot_sudden_spikes(df):
     spikes = []
     users = df['Sender'].unique()
+    
+    # Ensure Date is in datetime format
+    df['Date'] = pd.to_datetime(df['Date'])
+    
     for user in users:
         user_transactions = df[df['Sender'] == user].sort_values(by='Date')
         amounts = user_transactions['Amount'].values
+        
         for i in range(1, len(amounts)):
             if amounts[i] > 5 * amounts[i - 1]:
                 spikes.append(user_transactions.iloc[i])
@@ -76,13 +90,13 @@ def plot_sudden_spikes(df):
     plt.xlabel('Date')
     plt.ylabel('Amount')
     plt.title('Transaction Amounts with Sudden Spikes Highlighted')
-    plt.legend()
+    # plt.legend()
 
-    # Save plot to a bytes buffer
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png')
-    buf.seek(0)
-    return buf
+    # Save plot to a file
+    plt.savefig('static/transaction_spikes.png')
+    plt.close()
+    
+
 
 @application.route('/')
 def index():
@@ -95,8 +109,7 @@ def circular():
 
 @application.route('/spikes')
 def spikes():
-    buf = plot_sudden_spikes(df)
-    return send_file(buf, mimetype='image/png')
+    return render_template('transaction.html')
 
 @application.route("/models")
 def models():
