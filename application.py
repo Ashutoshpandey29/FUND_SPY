@@ -90,7 +90,6 @@ def plot_sudden_spikes(df):
     plt.xlabel('Date')
     plt.ylabel('Amount')
     plt.title('Transaction Amounts with Sudden Spikes Highlighted')
-    # plt.legend()
 
     # Save plot to a file
     plt.savefig('static/transaction_spikes.png')
@@ -109,6 +108,7 @@ def circular():
 
 @application.route('/spikes')
 def spikes():
+    plot_sudden_spikes(df)
     return render_template('transaction.html')
 
 @application.route("/models")

@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Spikes</title>
+    <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
-    <h1>Transaction Amounts with Sudden Spikes Highlighted</h1>
-    <img src="{{ url_for('static', filename='transaction_spikes.png') }}" alt="Transaction Spikes">
+    <div class = "circular-transactions-page-heading">
+        <h1>Sudden Spikes</h1>
+    </div>
+    <div class = "graph-container">       
+        <img class = "graph" src="{{ url_for('static', filename='transaction_spikes.png') }}" alt="Transaction Spikes">             
+    </div>  
+    <p><a href="/">
+        <img class = "home" src = "./static/images/home.svg"/>
+    </a></p>
 </body>
 </html>
