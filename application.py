@@ -96,5 +96,9 @@ def spikes():
     buf = plot_sudden_spikes(df)
     return send_file(buf, mimetype='image/png')
 
+@application.route('/fraudml')
+def fraudml():
+    return render_template('mlModel.html')
+
 if __name__ == '__main__':
     application.run(debug=True)
