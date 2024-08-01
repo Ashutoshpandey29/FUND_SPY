@@ -96,9 +96,36 @@ def spikes():
     buf = plot_sudden_spikes(df)
     return send_file(buf, mimetype='image/png')
 
-@application.route('/fraudml')
-def fraudml():
-    return render_template('mlModel.html')
+@application.route("/models")
+def models():
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Directory for CSV files
+    csv_dir = os.path.join(current_dir, "static/csv")
+
+    # List of CSV file names
+    csv_files = [
+        "output1.csv",
+        "output2.csv",
+        "output3.csv",
+        "output4.csv",
+        "output5.csv",
+    ]
+
+    # Load CSV files into dataframes and sample 20 rows
+    tables = []
+    for file in csv_files:
+        full_path = os.path.join(csv_dir, file)
+        print(f"Checking file: {full_path}")
+        if os.path.exists(full_path):
+            df = pd.read_csv(full_path)
+            df_sampled = df.sample(n=20)
+            html_table = df_sampled.to_html(classes="table table-striped", index=False)
+            tables.append(html_table)
+        else:
+            tables.append(f"<p>Error: {file} not found.</p>")
+
+    # Render the template with the tables
+    return render_template("mlModel.html", tables=tables)
 
 if __name__ == '__main__':
     application.run(debug=True)
