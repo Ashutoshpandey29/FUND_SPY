@@ -194,17 +194,17 @@ body {
     position: relative;
     overflow: hidden;
     display: inline-block;
+    
 }
 
-.btn {
-    border: 2px solid #4CAF50;
+.btn-circular {
+    border: 2px solid #227aad;
     color: white;
-    background-color: #4CAF50;
+    background-color: #227aad;
     padding: 8px 20px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 .upload-btn-wrapper input[type=file] {
@@ -343,4 +343,31 @@ body {
 
 .circular-transactions-page a:hover {
     text-decoration: underline; /* Underline on hover */
+}
+
+.circular-transactions-page-heading{
+    background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
+    width: 100%;
+    border-radius: 10px;
+    height: 20vh;
+}
+
+.circular-transactions-page-heading h1{
+    padding: 60px;
+    color: white;
+}
+
+
+.home {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+    opacity: 0.4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Optional: Add text color if there's text inside */
+    font-size: 16px; /* Adjust as needed */
 }

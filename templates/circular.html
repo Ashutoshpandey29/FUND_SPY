@@ -6,16 +6,22 @@
     <link rel="stylesheet" href="./static/styles.css">
   </head>
   <body class="circular-transactions-page">
-    <h1>Circular Transactions</h1>
+    <div class = "circular-transactions-page-heading">
+      <h1>Circular Transactions</h1>
+    </div>
+    <h3 class="subhead-text">List of Circular Transactions</h3>
     <ul>
       {% for cycle in cycles %}
         <li>{{ cycle }}</li>
       {% endfor %}
     </ul>
-    <p><a href="/">Back to Home</a></p>
+    
     <div class="upload-btn-wrapper">
-      <button class="btn">Upload CSV</button>
+      <button class="btn-circular">Upload CSV</button>
       <input type="file" name="csvFile" accept=".csv">
   </div>
+  <p><a href="/">
+    <img class = "home" src = "./static/images/home.svg"/>
+  </a></p>
   </body>
 </html>
