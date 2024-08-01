@@ -1,59 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <h1>ML Models</h1>
-        <div>
-            <h2>Model 1 - BaseLine</h2>
-            <div>
-                <img src="{{ url_for('static', filename='images/model1_pr.png') }}" alt="Model 1 Image 1">
-            </div>
-            <div>
-                <img src="{{ url_for('static', filename='images/model1_roc.png') }}" alt="Model 1 Image 2">
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML Models</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #cacccd;
+      }
+
+      .container-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        gap: 30px;
+        text-align: center;
+        background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
+        border-radius: 20px;
+        width: 100%;
+        height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .container-main h1 {
+        font-family: "Sacramento", cursive;
+        font-size: 50px;
+        color: #ffffff;
+        margin-bottom: 10px;
+      }
+
+      .cardContainer {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 20px;
+        width: 150px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        height: 150px;
+        color: #5e5e5e;
+        font-family: "Poppins", sans-serif;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        background-color: #f0f0f0;
+      }
+
+      .card h2 {
+        font-size: 20px;
+      }
+
+      #modelContent {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        text-align: center; /* Center text and content */
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .image-grid img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      #modelContent table {
+        margin-top: 20px;
+        margin-left: auto; /* Center the table */
+        margin-right: auto; /* Center the table */
+        display: inline-table; /* Ensure table stays centered */
+      }
+
+      .headings h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .headings h2 {
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-main">
+      <h1 class="typewriter">Select an ML Model</h1>
+      <div class="cardContainer">
+        <div class="card" onclick="showModel(1)">
+          <h2>Model 1</h2>
         </div>
-        <div>
-            <h2>Model 2 - SMOTE</h2>
-            <div>
-                <img src="{{ url_for('static', filename='images/model2_pr.png') }}" alt="Model 2 Image 1">
-            </div>
-            <div>
-                <img src="{{ url_for('static', filename='images/model2_roc.png') }}" alt="Model 2 Image 2">
-            </div>
+        <div class="card" onclick="showModel(2)">
+          <h2>Model 2</h2>
         </div>
-        <div>
-            <h2>Model 3 - Down-Sampling</h2>
-        <div>
-            <div>
-                <img src="{{ url_for('static', filename='images/model3_pr.png') }}" alt="Model 3 Image 1">
-            </div>
-            <div>
-                <img src="{{ url_for('static', filename='images/model3_roc.png') }}" alt="Model 3 Image 2">
-            </div>
+        <div class="card" onclick="showModel(3)">
+          <h2>Model 3</h2>
         </div>
-        <div>
-            <h2>Model 4 - PCA</h2>
-            <div>
-                <img src="{{ url_for('static', filename='images/model4_pr.png') }}" alt="Model 4 Image 1">
-            </div>
-            <div>
-                <img src="{{ url_for('static', filename='images/model4_roc.png') }}" alt="Model 4 Image 2">
-            </div>
+        <div class="card" onclick="showModel(4)">
+          <h2>Model 4</h2>
         </div>
-        <div>
-            <h2>Model 5 - KFOLD Validation</h2>
-            <div>
-                <img src="{{ url_for('static', filename='images/model5_pr.png') }}" alt="Model 5 Image 1">
-            </div>
-            <div>
-                <img src="{{ url_for('static', filename='images/model5_roc.png') }}" alt="Model 5 Image 2">
-            </div>
+        <div class="card" onclick="showModel(5)">
+          <h2>Model 5</h2>
         </div>
+      </div>
     </div>
-</body>
+
+    <div class="container" id="modelContent">
+      <!-- Dynamic content will be inserted here -->
+    </div>
+
+    <script>
+      const models = {
+        1: {
+          images: [
+            "{{ url_for('static', filename='images/model1_pr.png') }}",
+            "{{ url_for('static', filename='images/model1_roc.png') }}",
+          ],
+          table: `{{ tables[0]|safe }}`,
+        },
+        2: {
+          images: [
+            "{{ url_for('static', filename='images/model2_pr.png') }}",
+            "{{ url_for('static', filename='images/model2_roc.png') }}",
+          ],
+          table: `{{ tables[1]|safe }}`,
+        },
+        3: {
+          images: [
+            "{{ url_for('static', filename='images/model3_pr.png') }}",
+            "{{ url_for('static', filename='images/model3_roc.png') }}",
+          ],
+          table: `{{ tables[2]|safe }}`,
+        },
+        4: {
+          images: [
+            "{{ url_for('static', filename='images/model4_pr.png') }}",
+            "{{ url_for('static', filename='images/model4_roc.png') }}",
+          ],
+          table: `{{ tables[3]|safe }}`,
+        },
+        5: {
+          images: [
+            "{{ url_for('static', filename='images/model5_pr.png') }}",
+            "{{ url_for('static', filename='images/model5_roc.png') }}",
+          ],
+          table: `{{ tables[4]|safe }}`,
+        },
+      };
+
+      function showModel(modelNumber) {
+        const model = models[modelNumber];
+        const modelContent = document.getElementById("modelContent");
+
+        const imagesHtml = model.images
+          .map((src) => `<img src="${src}" alt="Model ${modelNumber} Image">`)
+          .join("");
+        const tableHtml = model.table;
+
+        modelContent.innerHTML = `
+                <div class="headings">
+                    <h2>Model ${modelNumber}</h2>
+                </div>
+                <div class="image-grid">
+                    ${imagesHtml}
+                </div>
+                <div>
+                    <h3>Model ${modelNumber} Table</h3>
+                    ${tableHtml}
+                </div>
+            `;
+      }
+
+      // Initialize with the first model's data
+      document.addEventListener("DOMContentLoaded", () => {
+        showModel(1);
+      });
+    </script>
+  </body>
 </html>
