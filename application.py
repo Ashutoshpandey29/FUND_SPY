@@ -157,19 +157,14 @@ def predict():
         return redirect(request.url)
 
     if file:
-        # Read the CSV file into a DataFrame without headers
         df = pd.read_csv(file, header=None)
 
-        # Use all columns as features
         features = df.values
 
-        # Make predictions
         predictions = model.predict(features)
 
-        # Add predictions to the DataFrame
         df['Prediction'] = predictions
 
-        # Convert results to HTML table and remove extra newlines
         results = df.to_html(classes='table table-striped', index=False).replace('\n', '')
 
         return render_template('results.html', tables=results)
