@@ -169,10 +169,16 @@ def predict():
         # Add predictions to the DataFrame
         df['Prediction'] = predictions
 
-        # Convert results to HTML table
-        results = df.to_html(classes='table table-striped', index=False)
+        # Convert results to HTML table and remove extra newlines
+        results = df.to_html(classes='table table-striped', index=False).replace('\n', '')
+        
+        #Create a list of row classes based on prediction values
+        row_classes = ['bg-red' if val <= 0.9 else 'bg-green' for val in predictions]
+        
+        # Convert DataFrame to a list of lists for use in the template
+        table_data = df.values.tolist()
 
-        return render_template('results.html', tables=[results])
+        return render_template('results.html', table_data=table_data, row_classes=row_classes, columns=df.columns)
 
 
 if __name__ == '__main__':
