@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Prediction Results</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
-</head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        padding: 20px;
+      }
 
-<body>
-    <h1>Prediction Results</h1>
-    <div>
-        {{ tables|safe }}
+      .heading {
+        background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .table-container {
+        margin-top: 20px;
+      }
+
+      table {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="heading">
+      <h1>Prediction Results</h1>
     </div>
-</body>
-
+    <div class="table-container">
+      {{ tables|safe }}
+    </div>
+  </body>
+  <script>
+    // Remove newline characters from the inner HTML of elements with the class 'table-container'
+    document.querySelectorAll('.table-container').forEach(container => {
+      container.innerHTML = container.innerHTML.replace(/\n/g, '');
+    });
+  </script>
 </html>

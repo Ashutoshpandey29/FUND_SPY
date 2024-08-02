@@ -311,32 +311,32 @@ body {
 }
 
 .circular-transactions-page ul {
-    list-style: none; /* Remove default list styling */
+    list-style: none; 
     padding: 0;
 }
 
 .circular-transactions-page li {
-    background-color: #ffffff; /* White background for list items */
-    border: 3px solid transparent; /* Transparent border to use gradient border-image */
-    border-radius: 10px; /* Rounded corners for the border */
+    background-color: #ffffff; 
+    border: 3px solid transparent;
+    border-radius: 10px; 
     padding: 15px;
-    margin: 10px auto; /* Center align list items */
-    max-width: 80%; /* Full width but with some margin on large screens */
-    color: #777; /* Grey color for text */
-    font-size: 1.1em; /* Slightly larger text */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    border-image: linear-gradient(to right, #d68080, #a81313) 1; /* Dark red gradient border */
-    border-image-slice: 1; /* Slice the border image */
+    margin: 10px auto; 
+    max-width: 80%;
+    color: #777; 
+    font-size: 1.1em; 
+    transition: background-color 0.3s ease;
+    border-image: linear-gradient(to right, #d68080, #a81313) 1; 
+    border-image-slice: 1; 
     font-weight: bold;
 }
 
 .circular-transactions-page li:hover {
-    background-color: #86c1e5; /* Light grey background on hover */
+    background-color: #86c1e5;
     color:#22065b
 }
 
 .circular-transactions-page a {
-    color: #007bff; /* Blue color for the link */
+    color: #007bff; 
     text-decoration: none;
     font-weight: bold;
 }
@@ -349,7 +349,7 @@ body {
     background: linear-gradient(to right, #22065b, hsl(211, 87%, 38%));
     width: 100%;
     border-radius: 10px;
-    height: 20vh;
+    height: auto;
 }
 
 .circular-transactions-page-heading h1{

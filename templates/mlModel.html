@@ -7,10 +7,10 @@
     <title>ML Models</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        /* Existing styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #cacccd;
+            margin: 10px;
         }
 
         .container-main {
@@ -35,6 +35,9 @@
             color: #ffffff;
             margin-bottom: 10px;
         }
+        .container-main h3{
+            color: #ffffff;
+        }
 
         .cardContainer {
             display: flex;
@@ -56,7 +59,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             flex: 1;
             height: 150px;
-            color: #5e5e5e;
+            color: #eeecec;
             font-family: "Poppins", sans-serif;
             position: relative;
             overflow: hidden;
@@ -68,7 +71,8 @@
         }
 
         .card h2 {
-            font-size: 20px;
+            font-size: 30px;
+            font-weight: 600;
         }
 
         #modelContent {
@@ -79,7 +83,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 100%;
             text-align: center;
-            /* Center text and content */
         }
 
         .image-grid {
@@ -98,17 +101,15 @@
 
         #modelContent table {
             margin-top: 20px;
-            margin-left: auto;
-            /* Center the table */
-            margin-right: auto;
-            /* Center the table */
+            margin-left: auto;          
+            margin-right: auto;           
             display: inline-table;
-            /* Ensure table stays centered */
         }
 
         .headings h2 {
             text-align: center;
             margin-bottom: 20px;
+            font-weight: bold;
         }
 
         .headings h2 {
@@ -117,32 +118,37 @@
             margin-bottom: 20px;
         }
 
-        /* New styles for highlighting */
+        .sub-headings h3 {
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
         .highlight {
             background-color: #ffcccc !important;
-            /* Light red background */
         }
     </style>
 </head>
 
 <body>
     <div class="container-main">
-        <h1 class="typewriter">Select Your Preferred Model</h1>
+        <h1>Choose a subscription plan</h1>
         <div class="cardContainer">
-            <div class="card" onclick="showModel(2)">
+            <div class="card" onclick="showModel(1)" style="background: linear-gradient(to bottom, rgb(233, 174, 174), rgb(156, 47, 47));">
                 <h2>Basic</h2>
             </div>
-            <div class="card" onclick="showModel(3)">
+            <div class="card" onclick="showModel(2)" style="background: linear-gradient(to bottom, rgb(223, 217, 165), rgb(129, 82, 27));">
                 <h2>Plus</h2>
             </div>
-            <div class="card" onclick="showModel(4)">
+            <div class="card" onclick="showModel(3)" style="background: linear-gradient(to bottom, rgb(72, 97, 43), rgb(150, 209, 110));">
                 <h2>Premium</h2>
             </div>
-            <div class="card" onclick="showModel(5)">
-                <h2>Premium</h2>
+            <div class="card" onclick="showModel(4)" style="background: linear-gradient(to bottom, rgb(92, 50, 109), rgb(192, 73, 73));">
+                <h2>Premium Plus</h2>
             </div>
         </div>
-        <h1>Upload CSV for Prediction</h1>
+        <h3>Upload CSV for Prediction</h3>
         <form action="/predict" method="post" enctype="multipart/form-data">
             <input type="file" name="file" accept=".csv">
             <input type="submit" value="Upload">
@@ -155,28 +161,28 @@
 
     <script>
         const models = {
-            2: {
+            1: {
                 images: [
                     "{{ url_for('static', filename='images/model2_pr.png') }}",
                     "{{ url_for('static', filename='images/model2_roc.png') }}"
                 ],
                 table: `{{ tables[0]|safe }}`
             },
-            3: {
+            2: {
                 images: [
                     "{{ url_for('static', filename='images/model3_pr.png') }}",
                     "{{ url_for('static', filename='images/model3_roc.png') }}"
                 ],
                 table: `{{ tables[1]|safe }}`
             },
-            4: {
+            3: {
                 images: [
                     "{{ url_for('static', filename='images/model4_pr.png') }}",
                     "{{ url_for('static', filename='images/model4_roc.png') }}"
                 ],
                 table: `{{ tables[2]|safe }}`
             },
-            5: {
+            4: {
                 images: [
                     "{{ url_for('static', filename='images/model5_pr.png') }}",
                     "{{ url_for('static', filename='images/model5_roc.png') }}"
@@ -193,13 +199,13 @@
             const tableHtml = model.table;
             modelContent.innerHTML = `
                 <div class="headings">
-                    <h2>Model ${modelNumber}</h2>
+                    <h2> Analytics ${modelNumber}</h2>
                 </div>
                 <div class="image-grid">
                     ${imagesHtml}
                 </div>
-                <div>
-                    <h3>Model ${modelNumber} Table</h3>
+                <div class = "sub-headings">
+                    <h3> Results </h3>
                     ${tableHtml}
                 </div>
             `;
@@ -211,7 +217,7 @@
                     const rows = table.querySelectorAll("tr");
                     rows.forEach(row => {
                         const cells = row.querySelectorAll("td");
-                        if (cells.length > 0) { // Ensure there are cells in the row
+                        if (cells.length > 0) { 
                             const lastCell = cells[cells.length - 1]; // Get the last cell
                             const text = lastCell.innerText.trim();
                             if (text !== '' && !isNaN(text)) {
@@ -227,7 +233,7 @@
 
         // Initialize with the first model's data
         document.addEventListener("DOMContentLoaded", () => {
-            showModel(2);
+            showModel(1);
         });
     </script>
 </body>
