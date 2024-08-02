@@ -30,16 +30,6 @@
       table {
         width: 100%;
       }
-
-      .bg-red {
-        background: linear-gradient(to right, lightcoral, darkred);
-        color: white;
-      }
-
-      .bg-green {
-        background: linear-gradient(to right, lightgreen, darkgreen);
-        color: white;
-      }
     </style>
   </head>
 
@@ -48,24 +38,7 @@
       <h1>Prediction Results</h1>
     </div>
     <div class="table-container">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            {% for col in columns %}
-            <th>{{ col }}</th>
-            {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          {% for row, row_class in table_data|zip(row_classes) %}
-          <tr class="{{ row_class }}">
-            {% for cell in row %}
-            <td>{{ cell }}</td>
-            {% endfor %}
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      {{ tables|safe }}
     </div>
   </body>
 </html>
